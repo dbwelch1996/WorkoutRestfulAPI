@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static dev.dbwelch.fitness.workout.TypeOfExercise.BARBELL;
 
@@ -16,6 +17,25 @@ public class WorkoutRepository {
 
     List<Workout> findAll(){
         return workouts;
+    }
+    Optional<Workout> findByID(Integer id){
+        return workouts.stream().
+                filter(workout-> workout.id() == id).
+                findFirst();
+    }
+    void createWorkout(Workout workout){
+        workouts.add(workout);
+    }
+
+    void updateWorkout(Workout workout, Integer id){
+        Optional<Workout> existingWorkout = findByID(id);
+        if (existingWorkout.isPresent()){
+            workouts.set(workouts.indexOf(existingWorkout.get()), workout);
+        }
+    }
+
+    void deleteWorkout(Integer id){
+        workouts.removeIf(workout -> workout.id().equals(id));
     }
 
     @PostConstruct
@@ -38,4 +58,5 @@ public class WorkoutRepository {
                 3,
                 BARBELL ));
     }
+
 }
