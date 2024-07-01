@@ -13,12 +13,14 @@ import java.util.Optional;
 @RequestMapping("/api/workouts")
 public class WorkoutController {
 
+    //Singleton design pattern
     private final WorkoutRepository workoutRepository;
 
     public WorkoutController(WorkoutRepository workoutRepository){
         this.workoutRepository = workoutRepository;
     }
 
+    //Prints all records
     @GetMapping("")
     List<Workout> findAll(){
         return workoutRepository.findAll();
@@ -48,7 +50,6 @@ public class WorkoutController {
     void update(@RequestBody Workout workout, @PathVariable Integer id){
         workoutRepository.updateWorkout(workout,id);
     }
-
 
     //delete
     @ResponseStatus(HttpStatus.NO_CONTENT)
