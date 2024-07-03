@@ -2,6 +2,7 @@ package dev.dbwelch.fitness.workout;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -19,7 +20,6 @@ public class WorkoutController {
     public WorkoutController(WorkoutRepository workoutRepository){
         this.workoutRepository = workoutRepository;
     }
-
     //Prints all records
     @GetMapping("")
     List<Workout> findAll(){
@@ -29,33 +29,34 @@ public class WorkoutController {
     //Read
     //Gets the ID of the workout
     @GetMapping("{id}")
-    Workout findById(@PathVariable Integer id){
-        Optional<Workout> workout = workoutRepository.findByID(id);
-        if (workout.isEmpty()){
-            throw new WorkoutNotFoundException();
-        }
-        return workout.get();
+    public ResponseEntity<Workout> getWorkoutById(@PathVariable Integer id) {
+        Optional<Workout> workoutOptional = workoutRepository.findById(id);
+
+        return workoutOptional
+                .map(workout -> ResponseEntity.ok().body(workout))
+                .orElse(ResponseEntity.notFound().build());
     }
+
 
     //post
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     void create(@Valid @RequestBody Workout workout){
-        workoutRepository.createWorkout(workout);
+        workoutRepository.create(workout);
     }
 
     //put
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     void update(@RequestBody Workout workout, @PathVariable Integer id){
-        workoutRepository.updateWorkout(workout,id);
+        workoutRepository.update(workout,id);
     }
 
     //delete
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id){
-        workoutRepository.deleteWorkout(id);
+        workoutRepository.delete(id);
     }
 
 }

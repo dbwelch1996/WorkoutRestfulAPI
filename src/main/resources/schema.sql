@@ -1,17 +1,11 @@
-CREATE TABLE IF NOT EXISTS Workout{
-    id INT NOT NULL,
-    title varchar(250) NOT NULL,
-    started_on timestamp NOT NULL,
-    completed_on timestamp NOT NULL,
-    exercise_name varchar(250) NOT NULL,
-    workout_weight INT NOT NULL,
-    workout_reps INT NOT NULL,
-    workout_sets INT NOT NULL,
-    type_of_exercise varchar (10) NOT NULL,
-    PRIMARY KEY (id)
-
-
-
-
-
-    }
+CREATE TABLE IF NOT EXISTS Workout (
+    id INT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    startedOn TIMESTAMP,
+    completedOn TIMESTAMP,
+    exerciseName VARCHAR(255),
+    workoutWeight INT NOT NULL,
+    workoutReps INT NOT NULL,
+    workoutSets INT NOT NULL,
+    typeOfExercise VARCHAR(50) NOT NULL
+);

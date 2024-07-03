@@ -1,0 +1,59 @@
+{
+  "workouts": [
+    {
+      "id": 1,
+      "title": "Push",
+      "startedOn": "2024-07-03T08:00:12.49766",
+      "completedOn": "2024-07-03T08:22:13.1234",
+      "exerciseName": "Dumbbell Bench Press",
+      "workoutWeight": 100,
+      "workoutReps": 12,
+      "workoutSets": 2,
+      "typeOfExercise": "DUMBBELL"
+    },
+    {
+      "id": 2,
+      "title": "Pull",
+      "startedOn": "2024-07-02T09:10:02.49734",
+      "completedOn": "2024-07-02T09:21:13.0001",
+      "exerciseName": "Bent Over Row",
+      "workoutWeight": 185,
+      "workoutReps": 8,
+      "workoutSets": 3,
+      "typeOfExercise": "BARBELL"
+    },
+    {
+      "id": 3,
+      "title": "Legs",
+      "startedOn": "2024-07-01T10:00:12.48371",
+      "completedOn": "2024-07-01T10:30:42.59382",
+      "exerciseName": "Squats",
+      "workoutWeight": 315,
+      "workoutReps": 10,
+      "workoutSets": 4,
+      "typeOfExercise": "BARBELL"
+    },
+    {
+      "id": 4,
+      "title": "NEW TITLE TEST",
+      "startedOn": "2024-02-27T16:00:12.49766",
+      "completedOn": "2024-02-27T15:01:12.497678",
+      "exerciseName": "Dumbbell Bench Press",
+      "workoutWeight": 100,
+      "workoutReps": 12,
+      "workoutSets": 2,
+      "typeOfExercise": "DUMBBELL"
+    },
+    {
+      "id": 5,
+      "title": "NEW TITLE TEST",
+      "startedOn": "2024-02-27T16:00:12.49766",
+      "completedOn": "2024-02-27T15:01:12.497678",
+      "exerciseName": "Dumbbell Bench Press",
+      "workoutWeight": 100,
+      "workoutReps": 12,
+      "workoutSets": 2,
+      "typeOfExercise": "DUMBBELL"
+    }
+  ]
+}

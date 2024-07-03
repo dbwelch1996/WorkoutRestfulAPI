@@ -1,0 +1,59 @@
+//This is a way to test the http responses with the specified request
+
+### Find ALl Runs
+GET http://localhost:8080/api/workouts
+
+### Find Run By ID
+GET http://localhost:8080/api/workouts/2
+
+
+### Create new Run
+POST http://localhost:8080/api/workouts/
+Content-Type: application/json
+
+{
+  "id": 11,
+  "title": "Push",
+  "startedOn": "2024-07-03 08:20:00",
+  "completedOn": "2024-07-03 09:30:00",
+  "exerciseName": "Dumbbell Bench Press",
+  "workoutWeight": 100,
+  "workoutReps": 12,
+  "workoutSets": 2,
+  "typeOfExercise": "DUMBBELL"
+}
+
+### Create new Run with invalid dates (completedOn is before startedOn)
+POST http://localhost:8080/api/workouts/
+Content-Type: application/json
+
+{
+  "id": 11,
+  "title": "Push",
+  "startedOn": "2024-02-27T16:00:12.49766",
+  "completedOn": "2024-02-27T15:01:12.497678",
+  "exerciseName": "Dumbbell Bench Press",
+  "workoutWeight": 100,
+  "workoutReps": 12,
+  "workoutSets": 2,
+  "typeOfExercise": "DUMBBELL"
+}
+
+### Update an existing Run
+PUT http://localhost:8080/api/workouts/11
+Content-Type: application/json
+
+{
+  "id": 11,
+  "title": "NEW TITLE TEST",
+  "startedOn": "2024-02-27T16:00:12.49766",
+  "completedOn": "2024-02-27T15:01:12.497678",
+  "exerciseName": "Dumbbell Bench Press",
+  "workoutWeight": 100,
+  "workoutReps": 12,
+  "workoutSets": 2,
+  "typeOfExercise": "DUMBBELL"
+}
+
+### Delete a Run
+DELETE http://localhost:8080/api/workouts/11

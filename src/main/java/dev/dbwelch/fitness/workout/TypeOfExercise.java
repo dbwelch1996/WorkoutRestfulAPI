@@ -5,5 +5,5 @@ public enum TypeOfExercise {
     BODYWEIGHT,
     CABLE,
     BARBELL,
-    DUMBELL
+    DUMBBELL
 }
